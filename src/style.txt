@@ -1,0 +1,38 @@
+	--primary: #b5a1e5;
+	--on-primary: #100e17;
+	--background: #131214;
+	--on-background: #eae6f2;
+	--surface: #1d1c1f;
+	--on-surface: #dddae5;
+	--on-surface-variant: #787980;
+	--on-surface-variant-2: #b9b6bf;
+	--outline: #3e3d40;
+	--bg-aqi-l: #89e589;
+	--on-bg-aqi-1: #1f331f;
+	--bg-aqi-2: #e5dd89;
+	--on-bg-aqi-2: #33311f;
+	--bg-aqi-3: #e5ce89;
+	--on-bg-aqi-3: #332BIF;
+	--bg-aqi-4: #e58989;
+	--on-bg-aqi-4: #331FIF;
+	--bg-aqi-5: #e589b7;
+	--on-bg-aqi-5: #331f29;
+	--white: hsl(0, 0%, 100%);
+	--white-alpha-4: hsl(0, 0%, 100%, 0.04);
+	--white-alpha-8: hsl(0, 0%, 100%, 0.08);
+	--black-alpha-8: hsl(0, 0%, 0%, 0.1);
+
+	/* gradient colors */
+	--gradient-1: linear-gradient(
+		180deg,
+		hsla(270, 5%, 7%) 0%,
+		hsla(270, 5%, 7%, 0.8) 65%,
+		hsl(270, 5%, 7%) 100%
+	);
+
+	--gradient-1: linear-gradient(
+		180deg,
+		hsla(260, 5%, 12%) 0%,
+		hsla(260, 5%, 12%, 0.8) 65%,
+		hsl(260, 5%, 12%) 100%
+	);
