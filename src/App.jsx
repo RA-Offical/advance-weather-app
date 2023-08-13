@@ -1,5 +1,9 @@
 import "./App.css";
-import { CurrentWeatherCard, ForecastWeatherCard } from "./component";
+import {
+	CurrentWeatherCard,
+	ForecastWeatherCard,
+	HighlightsWeatherCard,
+} from "./component";
 
 function App() {
 	return (
@@ -8,6 +12,8 @@ function App() {
 				<div className="container grid content-grid">
 					<CurrentWeatherCard />
 					<ForecastWeatherCard />
+
+					<HighlightsWeatherCard />
 				</div>
 			</main>
 		</div>

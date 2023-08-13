@@ -305,6 +305,11 @@ sub {
 	padding: 3rem;
 }
 
+.card-small {
+	border-radius: var(--border-radius-100);
+	padding: 1.6rem;
+}
+
 /* icons */
 .icon {
 	--dimen: 5rem;
@@ -320,8 +325,17 @@ sub {
 	--dimen: 2.5rem;
 }
 
+.icon--xmedium {
+	--dimen: 4rem;
+}
+
 @media screen and (min-width: 48em) {
 	.icon--medium.icon--responsive {
 		--dimen: 3.5rem;
 	}
+}
+
+/* content-grid */
+.content-grid {
+	row-gap: 4rem;
 }
