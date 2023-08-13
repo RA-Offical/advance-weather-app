@@ -1,0 +1,7 @@
+.current-weather-stats--card {
+	grid-area: current-weather;
+}
+
+.weather-stats-container {
+	justify-content: space-between;
+}

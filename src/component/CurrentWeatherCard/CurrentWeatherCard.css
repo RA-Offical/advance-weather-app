@@ -1,3 +1,7 @@
+.current-weather-wrapper {
+	grid-area: current-weather;
+}
+
 .current-weather-information-list__item {
 	gap: 0.8em;
 }
@@ -8,7 +12,11 @@
 }
 
 .current-weather-temperature-container {
-	gap: 40%;
+	gap: 2rem;
+}
+.current-weather-temperature-container .icon {
+	flex: 1;
+	margin-inline: auto;
 }
 .current-weather__temperature {
 	margin-left: 0.2em;

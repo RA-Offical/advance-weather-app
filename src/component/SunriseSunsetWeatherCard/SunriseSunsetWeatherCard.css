@@ -1,0 +1,12 @@
+.sunrise-sunset-weather-wrapper {
+	grid-area: sunrise-sunset;
+}
+.sunrise-sunset-container {
+	gap: min(20rem, 20%);
+}
+
+.sunrise-container,
+.sunset-container {
+	gap: 2rem;
+	flex-wrap: wrap;
+}

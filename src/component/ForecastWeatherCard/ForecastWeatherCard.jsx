@@ -2,7 +2,7 @@ import { BsFillCloudsFill } from "react-icons/bs";
 
 function ForecastWeatherCard() {
 	return (
-		<section>
+		<section className="forecast-weather-wrapper">
 			<h2 className="text-neutral-200 font-static-medium fw-semi-bold mb-xmd">
 				5 days Forecast
 			</h2>
@@ -14,7 +14,7 @@ function ForecastWeatherCard() {
 					<li className="flex align-ic forecast-list__item">
 						<div className="flex align-ic forecast-list-temperature-container">
 							<BsFillCloudsFill className="text-neutral-200 icon icon--medium icon--responsive" />
-							<p className="font-dynamic-medium">
+							<p className="text-neutral-200 font-dynamic-medium">
 								-40&deg;<sup>C</sup>
 							</p>
 						</div>
@@ -26,7 +26,7 @@ function ForecastWeatherCard() {
 					<li className="flex align-ic forecast-list__item">
 						<div className="flex align-ic forecast-list-temperature-container">
 							<BsFillCloudsFill className="text-neutral-200 icon icon--medium icon--responsive" />
-							<p className="font-dynamic-medium">
+							<p className="text-neutral-200 font-dynamic-medium">
 								-40&deg;<sup>C</sup>
 							</p>
 						</div>
@@ -38,7 +38,7 @@ function ForecastWeatherCard() {
 					<li className="flex align-ic forecast-list__item">
 						<div className="flex align-ic forecast-list-temperature-container">
 							<BsFillCloudsFill className="text-neutral-200 icon icon--medium icon--responsive" />
-							<p className="font-dynamic-medium">
+							<p className="text-neutral-200 font-dynamic-medium">
 								-40&deg;<sup>C</sup>
 							</p>
 						</div>
@@ -50,7 +50,7 @@ function ForecastWeatherCard() {
 					<li className="flex align-ic forecast-list__item">
 						<div className="flex align-ic forecast-list-temperature-container">
 							<BsFillCloudsFill className="text-neutral-200 icon icon--medium icon--responsive" />
-							<p className="font-dynamic-medium">
+							<p className="text-neutral-200 font-dynamic-medium">
 								-40&deg;<sup>C</sup>
 							</p>
 						</div>

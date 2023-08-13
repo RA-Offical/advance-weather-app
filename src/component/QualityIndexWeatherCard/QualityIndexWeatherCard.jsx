@@ -2,7 +2,7 @@ import { TbWind } from "react-icons/tb";
 
 function QualityIndexWeatherCard() {
 	return (
-		<div className="bg-neutral-600 card-small quality-index--card">
+		<div className={`bg-neutral-600 card-small quality-index--card`}>
 			{/* header which shows quality index, poor, fair , good */}
 			<header className="flex align-ic mb-md quality-index-header">
 				<h3 className="font-static-small">Air Quality Index</h3>
@@ -12,13 +12,11 @@ function QualityIndexWeatherCard() {
 				</p>
 			</header>
 
-			<div className="pt-xmd pb-sm quality-index-content">
-				<ul className="flex align-ic quality-index-list">
-					<li className="grid quality-index-list__item">
-						{/* Wind Icons */}
-						<TbWind className="icon icon--xmedium" />
-					</li>
+			<div className="pt-xmd pb-sm flex align-ic quality-index-body">
+				{/* Wind Icons */}
+				<TbWind className="text-neutral-200 icon icon--xmedium" />
 
+				<ul className="flex align-ic quality-index-list">
 					{/* Gases item */}
 					<li className="grid quality-index-list__item">
 						<p className="font-static-small quality-index__gas">

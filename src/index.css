@@ -5,6 +5,8 @@
 @import url(./component/ForecastWeatherCard/ForecastWeatherCard.css);
 @import url(./component/HighlightsWeatherCard/HighlightsWeatherCard.css);
 @import url(./component/QualityIndexWeatherCard/QualityIndexWeatherCard.css);
+@import url(./component/SunriseSunsetWEatherCard/SunriseSunsetWEatherCard.css);
+@import url(./component/CurrentWeatherStatsCard/CurrentWeatherStatsCard.css);
 
 :root {
 	/* colors */

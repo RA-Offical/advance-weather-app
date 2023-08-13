@@ -4,7 +4,7 @@ import { FaLocationDot } from "react-icons/fa6";
 
 function CurrentWeatherCard() {
 	return (
-		<section>
+		<section className="current-weather-wrapper">
 			<div className="text-neutral-200 bg-neutral-500 card current-weather-card">
 				<h2 className="font-static-medium pb-xlmd current-weather-card__title ">
 					Now
@@ -18,7 +18,7 @@ function CurrentWeatherCard() {
 					</p>
 
 					{/* icon for current weather */}
-					<LuWaves className="icon " />
+					<LuWaves className="icon" />
 				</div>
 
 				{/* current weather condition e.g: cloudy, haze, rainy */}

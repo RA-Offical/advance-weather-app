@@ -1,3 +1,7 @@
+.forecast-weather-wrapper {
+	grid-area: forecast-weather;
+}
+
 .forecast-list {
 	gap: 0.8em;
 }

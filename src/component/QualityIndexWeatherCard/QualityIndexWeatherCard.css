@@ -1,3 +1,7 @@
+.quality-index--card {
+	grid-area: quality-index;
+}
+
 .quality-index-header {
 	justify-content: space-between;
 }
@@ -11,11 +15,27 @@
 	color: var(--color-good-100);
 }
 
-.quality-index-list {
+.quality-index-body {
 	justify-content: space-between;
+}
+
+.quality-index-body,
+.quality-index-list {
+	gap: 3rem;
+}
+
+.quality-index-list {
+	flex: 1;
+	flex-wrap: wrap;
 }
 
 .quality-index-list__item {
 	justify-items: center;
 	align-items: center;
+}
+
+@media screen and (min-width: 48em) {
+	.quality-index-list {
+		justify-content: space-around;
+	}
 }

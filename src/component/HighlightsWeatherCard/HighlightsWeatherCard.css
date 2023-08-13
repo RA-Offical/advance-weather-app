@@ -1,0 +1,35 @@
+.highlight-weather-wrapper {
+	grid-area: current-highlight;
+}
+
+.highlight-weather-card-body {
+	grid-template-areas:
+		"quality-index quality-index sunrise-sunset sunrise-sunset"
+		"visibility feels humudity pressure";
+	grid-template-columns: repeat(4, 1fr);
+	gap: 3rem;
+}
+
+.area-visibility {
+	grid-area: visibility;
+}
+.area-humudity {
+	grid-area: humudity;
+}
+.area-feels {
+	grid-area: feels;
+}
+.area-pressure {
+	grid-area: pressure;
+}
+
+@media screen and (max-width: 63em) {
+	.highlight-weather-card-body {
+		grid-template-areas:
+			"quality-index quality-index"
+			"sunrise-sunset sunrise-sunset"
+			"visibility feels"
+			"humudity pressure";
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
