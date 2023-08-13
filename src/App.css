@@ -9,8 +9,17 @@ ul {
 	list-style: none;
 }
 
-sup {
+sup,
+sub {
 	font-size: 0.7em;
+}
+
+sup {
+	vertical-align: top;
+}
+
+sub {
+	vertical-align: baseline;
 }
 
 /* utility classes */
@@ -111,24 +120,10 @@ sup {
 	border-radius: var(--border-radius-full);
 }
 
-/* flex */
-
-.flex {
-	display: flex;
-}
-
-.align-ic {
-	align-items: center;
-}
-
-/* grid */
-.grid {
-	display: grid;
-}
-
 /* fonts */
 .font-dynamic-xlarge {
 	font-size: var(--fs-900);
+	line-height: 1.2;
 }
 
 .font-dynamic-large {
@@ -166,5 +161,167 @@ sup {
 
 	.font-dynamic-medium {
 		font-size: var(--fs-600);
+	}
+}
+
+/* padding bottom */
+.pb-sm {
+	padding-bottom: 0.5rem;
+}
+
+.pb-md {
+	padding-bottom: 1rem;
+}
+
+.pb-xmd {
+	padding-bottom: 1.5rem;
+}
+
+.pb-xlmd {
+	padding-bottom: 2rem;
+}
+
+.pb-lg {
+	padding-bottom: 2.5rem;
+}
+
+.pb-xlg {
+	padding-bottom: 3rem;
+}
+
+.pt-sm {
+	padding-top: 0.5rem;
+}
+
+.pt-md {
+	padding-top: 1rem;
+}
+
+.pt-xmd {
+	padding-top: 1.5rem;
+}
+
+.pt-xlmd {
+	padding-top: 2rem;
+}
+
+.pt-lg {
+	padding-top: 2.5rem;
+}
+
+.pt-xlg {
+	padding-top: 3rem;
+}
+
+/* margin */
+.mt-sm {
+	margin-top: 0.5rem;
+}
+
+.mt-md {
+	margin-top: 1rem;
+}
+
+.mt-xmd {
+	margin-top: 1.5rem;
+}
+
+.mt-xlmd {
+	margin-top: 2rem;
+}
+
+.mt-lg {
+	margin-top: 2.5rem;
+}
+
+.mt-xlg {
+	margin-top: 3rem;
+}
+
+.mb-sm {
+	margin-bottom: 0.5rem;
+}
+
+.mb-md {
+	margin-bottom: 1rem;
+}
+
+.mb-xmd {
+	margin-bottom: 1.5rem;
+}
+
+.mb-xlmd {
+	margin-bottom: 2rem;
+}
+
+.mb-lg {
+	margin-bottom: 2.5rem;
+}
+
+.mb-xlg {
+	margin-bottom: 3rem;
+}
+
+/* flex */
+.flex {
+	display: flex;
+}
+
+.align-ic {
+	align-items: center;
+}
+
+/* grid */
+.grid {
+	display: grid;
+}
+
+/* container */
+.container {
+	--max-width: 1400px;
+	--dynamic-width: 93%;
+	--x-padding: 0;
+
+	width: min(var(--max-width), var(--dynamic-width));
+	padding-inline: var(--x-padding);
+	margin-inline: auto;
+}
+
+@media screen and (min-width: 48em) {
+	.container {
+		--x-padding: 2rem;
+	}
+}
+
+@media screen and (min-width: 75em) {
+	.container {
+		--x-padding: 3.5rem;
+	}
+}
+
+/* cards */
+.card {
+	border-radius: var(--border-radius-200);
+	padding: 3rem;
+}
+
+/* icons */
+.icon {
+	--dimen: 5rem;
+	width: var(--dimen);
+	height: var(--dimen);
+}
+
+.icon--small {
+	--dimen: 2rem;
+}
+
+.icon--medium {
+	--dimen: 2.5rem;
+}
+
+@media screen and (min-width: 48em) {
+	.icon--medium.icon--responsive {
+		--dimen: 3.5rem;
 	}
 }

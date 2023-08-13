@@ -1,0 +1,8 @@
+.forecast-list__item {
+	gap: 2rem;
+	justify-content: space-between;
+}
+
+.forecast-list-temperature-container {
+	gap: 0.8em;
+}

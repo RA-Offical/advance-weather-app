@@ -1,0 +1,15 @@
+.current-weather-information-list__item {
+	gap: 0.8em;
+}
+
+.current-weather-information-list {
+	border-top: 2px solid var(--color-neutral-400);
+	gap: 0.8em;
+}
+
+.current-weather-temperature-container {
+	gap: 40%;
+}
+.current-weather__temperature {
+	margin-left: 0.2em;
+}

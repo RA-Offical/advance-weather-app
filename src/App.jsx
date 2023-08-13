@@ -1,9 +1,15 @@
 import "./App.css";
+import { CurrentWeatherCard, ForecastWeatherCard } from "./component";
 
 function App() {
 	return (
 		<div className="app">
-			<main></main>
+			<main>
+				<div className="container grid content-grid">
+					<CurrentWeatherCard />
+					<ForecastWeatherCard />
+				</div>
+			</main>
 		</div>
 	);
 }
