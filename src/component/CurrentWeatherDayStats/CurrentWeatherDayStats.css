@@ -1,0 +1,24 @@
+.current-weather-day-stats-container {
+	grid-area: current-day-highlight;
+}
+
+.current-day-stats-content {
+	gap: 2rem;
+}
+
+.current-day-stats-container {
+	cursor: grab;
+	overflow: hidden;
+	gap: 2rem;
+}
+
+.current-day-stats-container li {
+	flex: 1;
+	min-width: 13rem;
+	text-align: center;
+}
+
+.grab {
+	user-select: none;
+	cursor: grabbing;
+}

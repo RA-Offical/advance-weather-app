@@ -5,3 +5,5 @@ export { default as QualityIndexWeatherCard } from "./QualityIndexWeatherCard/Qu
 export { default as SunriseSunsetWeatherCard } from "./SunriseSunsetWeatherCard/SunriseSunsetWeatherCard";
 export { default as CurrentTimeWeatherCard } from "./CurrentTimeWeatherCard/CurrentTimeWeatherCard";
 export { default as CurrentWeatherStatsCard } from "./CurrentWeatherStatsCard/CurrentWeatherStatsCard";
+export { default as CurrentWeatherDayStats } from "./CurrentWeatherDayStats/CurrentWeatherDayStats";
+export { default as CurrentDayTemperatureWindCard } from "./CurrentDayTemperatureWindCard/CurrentDayTemperatureWindCard";
