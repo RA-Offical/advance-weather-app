@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { MdSunny } from "react-icons/md";
-import { CurrentDayTemperatureWindCard } from "../";
+import { HourlyForecastCard } from "..";
 import useGrabScroll from "../../Hooks/GrabScroll";
 
-function CurrentWeatherDayStats() {
+function HourlyForecast() {
 	const sliderOneRef = useGrabScroll();
 	const sliderTwoRef = useGrabScroll();
 
@@ -20,7 +20,7 @@ function CurrentWeatherDayStats() {
 				>
 					{/* seperate card for temeprature */}
 					<li>
-						<CurrentDayTemperatureWindCard
+						<HourlyForecastCard
 							statsTime={"6AM"}
 							statsIcon={
 								<MdSunny className="text-neutral-200 icon icon-xxmd" />
@@ -36,7 +36,7 @@ function CurrentWeatherDayStats() {
 
 					{/* seperate card for temeprature */}
 					<li>
-						<CurrentDayTemperatureWindCard
+						<HourlyForecastCard
 							statsTime={"6AM"}
 							statsIcon={
 								<MdSunny className="text-neutral-200 icon icon-xxmd" />
@@ -52,7 +52,7 @@ function CurrentWeatherDayStats() {
 
 					{/* seperate card for temeprature */}
 					<li>
-						<CurrentDayTemperatureWindCard
+						<HourlyForecastCard
 							statsTime={"6AM"}
 							statsIcon={
 								<MdSunny className="text-neutral-200 icon icon-xxmd" />
@@ -68,7 +68,7 @@ function CurrentWeatherDayStats() {
 
 					{/* seperate card for temeprature */}
 					<li>
-						<CurrentDayTemperatureWindCard
+						<HourlyForecastCard
 							statsTime={"6AM"}
 							statsIcon={
 								<MdSunny className="text-neutral-200 icon icon-xxmd" />
@@ -84,7 +84,7 @@ function CurrentWeatherDayStats() {
 
 					{/* seperate card for temeprature */}
 					<li>
-						<CurrentDayTemperatureWindCard
+						<HourlyForecastCard
 							statsTime={"6AM"}
 							statsIcon={
 								<MdSunny className="text-neutral-200 icon icon-xxmd" />
@@ -105,7 +105,7 @@ function CurrentWeatherDayStats() {
 				>
 					{/* seperate card for temeprature */}
 					<li>
-						<CurrentDayTemperatureWindCard
+						<HourlyForecastCard
 							statsTime={"6AM"}
 							statsIcon={
 								<MdSunny className="text-neutral-200 icon icon-xxmd" />
@@ -121,7 +121,7 @@ function CurrentWeatherDayStats() {
 
 					{/* seperate card for temeprature */}
 					<li>
-						<CurrentDayTemperatureWindCard
+						<HourlyForecastCard
 							statsTime={"6AM"}
 							statsIcon={
 								<MdSunny className="text-neutral-200 icon icon-xxmd" />
@@ -137,7 +137,7 @@ function CurrentWeatherDayStats() {
 
 					{/* seperate card for temeprature */}
 					<li>
-						<CurrentDayTemperatureWindCard
+						<HourlyForecastCard
 							statsTime={"6AM"}
 							statsIcon={
 								<MdSunny className="text-neutral-200 icon icon-xxmd" />
@@ -153,7 +153,7 @@ function CurrentWeatherDayStats() {
 
 					{/* seperate card for temeprature */}
 					<li>
-						<CurrentDayTemperatureWindCard
+						<HourlyForecastCard
 							statsTime={"6AM"}
 							statsIcon={
 								<MdSunny className="text-neutral-200 icon icon-xxmd" />
@@ -169,7 +169,7 @@ function CurrentWeatherDayStats() {
 
 					{/* seperate card for temeprature */}
 					<li>
-						<CurrentDayTemperatureWindCard
+						<HourlyForecastCard
 							statsTime={"6AM"}
 							statsIcon={
 								<MdSunny className="text-neutral-200 icon icon-xxmd" />
@@ -188,4 +188,4 @@ function CurrentWeatherDayStats() {
 	);
 }
 
-export default CurrentWeatherDayStats;
+export default HourlyForecast;

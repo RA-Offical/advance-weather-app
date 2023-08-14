@@ -1,6 +1,6 @@
 import { BsFillCloudsFill } from "react-icons/bs";
 
-function ForecastWeatherCard() {
+function DayForecast() {
 	return (
 		<section className="forecast-weather-wrapper">
 			<h2 className="text-neutral-200 font-static-medium fw-semi-bold mb-xmd">
@@ -63,4 +63,4 @@ function ForecastWeatherCard() {
 	);
 }
 
-export default ForecastWeatherCard;
+export default DayForecast;

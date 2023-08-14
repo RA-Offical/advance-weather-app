@@ -1,4 +1,4 @@
-function CurrentDayTemperatureWindCard({
+function HourlyForecastCard({
 	statsTime,
 	statsValue,
 	statsIcon,
@@ -15,4 +15,4 @@ function CurrentDayTemperatureWindCard({
 		</article>
 	);
 }
-export default CurrentDayTemperatureWindCard;
+export default HourlyForecastCard;

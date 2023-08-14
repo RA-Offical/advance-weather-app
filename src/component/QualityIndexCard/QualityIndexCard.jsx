@@ -1,6 +1,6 @@
 import { TbWind } from "react-icons/tb";
 
-function QualityIndexWeatherCard() {
+function QualityIndexCard() {
 	return (
 		<div className={`bg-neutral-600 card-small quality-index--card`}>
 			{/* header which shows quality index, poor, fair , good */}
@@ -66,4 +66,4 @@ function QualityIndexWeatherCard() {
 	);
 }
 
-export default QualityIndexWeatherCard;
+export default QualityIndexCard;

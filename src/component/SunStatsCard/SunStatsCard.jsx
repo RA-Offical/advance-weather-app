@@ -1,7 +1,7 @@
 import { MdSunny } from "react-icons/md";
 import { BsFillMoonFill } from "react-icons/bs";
 
-function SunriseSunsetWeatherCard() {
+function SunStatsCard() {
 	return (
 		<section className="sunrise-sunset-weather-wrapper">
 			<div className={` bg-neutral-600  card-small`}>
@@ -34,4 +34,4 @@ function SunriseSunsetWeatherCard() {
 	);
 }
 
-export default SunriseSunsetWeatherCard;
+export default SunStatsCard;

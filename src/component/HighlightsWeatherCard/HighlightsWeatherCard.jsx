@@ -1,8 +1,4 @@
-import {
-	CurrentWeatherStatsCard,
-	QualityIndexWeatherCard,
-	SunriseSunsetWeatherCard,
-} from "../";
+import { CurrentWeatherStatsCard, QualityIndexCard, SunStatsCard } from "../";
 import { WiHumidity } from "react-icons/wi";
 import { LuWaves } from "react-icons/lu";
 import { PiEyeBold } from "react-icons/pi";
@@ -18,10 +14,10 @@ function HighlightsWeatherCard() {
 
 				<div className="grid highlight-weather-card-body">
 					{/* Quality index Component */}
-					<QualityIndexWeatherCard />
+					<QualityIndexCard />
 
 					{/* Sunrise & Sunset Component */}
-					<SunriseSunsetWeatherCard />
+					<SunStatsCard />
 
 					{/* Current Weather Stats Component: Humidity */}
 					<CurrentWeatherStatsCard
