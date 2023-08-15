@@ -2,7 +2,7 @@ import { LuWaves } from "react-icons/lu";
 import { BsFillCalendar2EventFill } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 
-function CurrentWeatherCard() {
+function CurrentWeather() {
 	return (
 		<section className="current-weather-wrapper">
 			<div className="text-neutral-200 bg-neutral-500 card current-weather-card">
@@ -47,4 +47,4 @@ function CurrentWeatherCard() {
 	);
 }
 
-export default CurrentWeatherCard;
+export default CurrentWeather;

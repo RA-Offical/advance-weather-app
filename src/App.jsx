@@ -1,9 +1,9 @@
 import "./App.css";
 import {
-	CurrentWeatherCard,
+	CurrentWeather,
 	HourlyForecast,
-	DayForecast,
-	HighlightsWeatherCard,
+	DaysForecast,
+	TodayHighlights,
 } from "./component";
 
 function App() {
@@ -11,9 +11,9 @@ function App() {
 		<div className="app">
 			<main>
 				<div className="container grid content-grid">
-					<CurrentWeatherCard />
-					<DayForecast />
-					<HighlightsWeatherCard />
+					<CurrentWeather />
+					<DaysForecast />
+					<TodayHighlights />
 					<HourlyForecast />
 				</div>
 			</main>

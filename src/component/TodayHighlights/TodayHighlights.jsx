@@ -1,4 +1,4 @@
-import { CurrentWeatherStatsCard, QualityIndexCard, SunStatsCard } from "../";
+import { CurrentWeatherMetricsCard, QualityIndexCard, SunStatsCard } from "..";
 import { WiHumidity } from "react-icons/wi";
 import { LuWaves } from "react-icons/lu";
 import { PiEyeBold } from "react-icons/pi";
@@ -20,7 +20,7 @@ function HighlightsWeatherCard() {
 					<SunStatsCard />
 
 					{/* Current Weather Stats Component: Humidity */}
-					<CurrentWeatherStatsCard
+					<CurrentWeatherMetricsCard
 						statsTitle={"Humidity"}
 						statsValue={60}
 						statsIcon={
@@ -30,7 +30,7 @@ function HighlightsWeatherCard() {
 						generalClasses={`area-humudity`}
 					/>
 					{/* Current Weather Stats Component: Humidity */}
-					<CurrentWeatherStatsCard
+					<CurrentWeatherMetricsCard
 						statsTitle={"Pressure"}
 						statsValue={1011}
 						statsIcon={
@@ -40,7 +40,7 @@ function HighlightsWeatherCard() {
 						generalClasses={`area-pressure`}
 					/>
 					{/* Current Weather Stats Component: Humidity */}
-					<CurrentWeatherStatsCard
+					<CurrentWeatherMetricsCard
 						statsTitle={"Visibility"}
 						statsValue={0.4}
 						statsIcon={
@@ -50,7 +50,7 @@ function HighlightsWeatherCard() {
 						generalClasses={`area-visibility`}
 					/>
 					{/* Current Weather Stats Component: Humidity */}
-					<CurrentWeatherStatsCard
+					<CurrentWeatherMetricsCard
 						statsTitle={"Feels Like"}
 						statsValue={-41}
 						statsIcon={

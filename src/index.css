@@ -1,18 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap");
-
+/* importing style sheets */
 @import url(./App.css);
-@import url(./component/CurrentWeatherCard/CurrentWeatherCard.css);
-@import url(./component/DayForecast/DayForecast.css);
-@import url(./component/HighlightsWeatherCard/HighlightsWeatherCard.css);
+@import url(./component/CurrentWeather/CurrentWeather.css);
+@import url(./component/DaysForecast/DaysForecast.css);
+@import url(./component/TodayHighlights/TodayHighlights.css);
 @import url(./component/QualityIndexCard/QualityIndexCard.css);
 @import url(./component/SunStatsCard/SunStatsCard.css);
-@import url(./component/CurrentWeatherStatsCard/CurrentWeatherStatsCard.css);
+@import url(./component/CurrentWeatherMetricsCard/CurrentWeatherMetricsCard.css);
 @import url(./component/HourlyForecast/HourlyForecast.css);
 
 :root {
 	/* colors */
 	--color-primary: #b1a1e2;
-
 	--color-neutral-100: #fff;
 	--color-neutral-200: #dddae5;
 	--color-neutral-300: #787980;
