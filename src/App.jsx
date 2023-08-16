@@ -1,5 +1,6 @@
 import "./App.css";
 import {
+	Header,
 	CurrentWeather,
 	HourlyForecast,
 	DaysForecast,
@@ -9,6 +10,7 @@ import {
 function App() {
 	return (
 		<div className="app">
+			<Header />
 			<main>
 				<div className="container grid content-grid">
 					<CurrentWeather />

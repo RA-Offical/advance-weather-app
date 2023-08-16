@@ -8,6 +8,7 @@
 @import url(./component/SunStatsCard/SunStatsCard.css);
 @import url(./component/CurrentWeatherMetricsCard/CurrentWeatherMetricsCard.css);
 @import url(./component/HourlyForecast/HourlyForecast.css);
+@import url(./component/Header/Header.css);
 
 :root {
 	/* colors */

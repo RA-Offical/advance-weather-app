@@ -344,6 +344,24 @@ sub {
 	}
 }
 
+/* buttons */
+.btn {
+	background-color: transparent;
+	border: 1px solid transparent;
+	font-weight: var(--fs-semi-bold);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	text-decoration: none;
+	cursor: pointer;
+	color: inherit;
+	padding: 0.6em 1em;
+	white-space: nowrap;
+	transition-duration: 150ms;
+	transition-property: color, background, border-color;
+}
+
 /* content-grid */
 .content-grid {
 	padding-block: 10rem;

@@ -6,3 +6,4 @@ export { default as SunStatsCard } from "./SunStatsCard/SunStatsCard";
 export { default as HourlyForecast } from "./HourlyForecast/HourlyForecast";
 export { default as CurrentWeatherMetricsCard } from "./CurrentWeatherMetricsCard/CurrentWeatherMetricsCard";
 export { default as HourlyForecastCard } from "./HourlyForecastCard/HourlyForecastCard";
+export { default as Header } from "./Header/Header";
