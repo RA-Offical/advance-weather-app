@@ -9,6 +9,7 @@
 @import url(./component/CurrentWeatherMetricsCard/CurrentWeatherMetricsCard.css);
 @import url(./component/HourlyForecast/HourlyForecast.css);
 @import url(./component/Header/Header.css);
+@import url(./component/SearchGroup/SearchGroup.css);
 
 :root {
 	/* colors */
