@@ -1,8 +1,12 @@
 import { LuWaves } from "react-icons/lu";
 import { BsFillCalendar2EventFill } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
+import { useGlobalContext } from "../../Hooks/GlobalContext";
 
 function CurrentWeather() {
+	const { name, weatherCondition, currentTemperature, country, state } =
+		useGlobalContext();
+
 	return (
 		<section className="current-weather-wrapper">
 			<div className="text-neutral-200 bg-neutral-500 card current-weather-card">
@@ -14,7 +18,7 @@ function CurrentWeather() {
 				<div className="text-neutral-100 flex align-ic current-weather-temperature-container">
 					{/* current temperature */}
 					<p className="font-dynamic-xlarge current-weather__temperature">
-						19&deg;<sup>C</sup>
+						{currentTemperature}&deg;<sup>C</sup>
 					</p>
 
 					{/* icon for current weather */}
@@ -23,7 +27,7 @@ function CurrentWeather() {
 
 				{/* current weather condition e.g: cloudy, haze, rainy */}
 				<p className="mt-lg mb-lg fw-semi-bold current-weather__condition">
-					Rainy
+					{weatherCondition}
 				</p>
 
 				{/* Current weather information list such as time, date and location */}
@@ -39,7 +43,9 @@ function CurrentWeather() {
 					<li className="flex align-ic current-weather-information-list__item">
 						<FaLocationDot className="icon icon--small" />
 
-						<p className="text-neutral-300">Yakutsk, RU</p>
+						<p className="text-neutral-300">
+							{country}, {state}
+						</p>
 					</li>
 				</ul>
 			</div>

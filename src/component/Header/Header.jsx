@@ -5,7 +5,7 @@ import { SearchGroup } from "../";
 import { useState } from "react";
 
 function Header() {
-	const [isMobileSearchVisible, setIsMobileSearchVisible] = useState(true);
+	const [isMobileSearchVisible, setIsMobileSearchVisible] = useState(false);
 
 	return (
 		<header className="header">

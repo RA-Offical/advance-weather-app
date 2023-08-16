@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function Error({ errorCode, errorMessage }) {
 	return (
 		<div className="grid error">
@@ -8,7 +9,9 @@ function Error({ errorCode, errorMessage }) {
 				<p className="mb-xmd font-dynamic-medium error__message">
 					{errorMessage || "Page not found"}
 				</p>
-				<button className="btn btn--primary">Back Home</button>
+				<Link to="/" className="btn btn--primary">
+					Back Home
+				</Link>
 			</div>
 		</div>
 	);

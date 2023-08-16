@@ -1,7 +1,12 @@
 import { MdSunny } from "react-icons/md";
 import { BsFillMoonFill } from "react-icons/bs";
+import { useGlobalContext } from "../../Hooks/GlobalContext";
 
 function SunStatsCard() {
+	const {
+		sunStats: { sunrise, sunset },
+	} = useGlobalContext();
+
 	return (
 		<section className="sunrise-sunset-weather-wrapper">
 			<div className={` bg-neutral-600  card-small`}>
@@ -15,7 +20,7 @@ function SunStatsCard() {
 						<MdSunny className="icon icon--xmedium" />
 						<div className="sunrise-time-container">
 							<h4 className="font-static-small">Sunrise</h4>
-							<p className="font-dynamic-large">6:00 AM</p>
+							<p className="font-dynamic-large">{sunrise}</p>
 						</div>
 					</div>
 
@@ -25,7 +30,7 @@ function SunStatsCard() {
 
 						<div className="sunset-time-container">
 							<h4 className="font-static-small">Sunset</h4>
-							<p className="font-dynamic-large">7:00 PM</p>
+							<p className="font-dynamic-large">{sunset}</p>
 						</div>
 					</div>
 				</div>

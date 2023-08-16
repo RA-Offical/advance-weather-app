@@ -8,7 +8,6 @@
 }
 
 .btn--location {
-	height: 40px;
 	border-radius: 9999px;
 	background-color: var(--color-primary);
 }

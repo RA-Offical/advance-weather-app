@@ -3,8 +3,11 @@ import { WiHumidity } from "react-icons/wi";
 import { LuWaves } from "react-icons/lu";
 import { PiEyeBold } from "react-icons/pi";
 import { BsThermometerHalf } from "react-icons/bs";
+import { useGlobalContext } from "../../Hooks/GlobalContext";
 
 function HighlightsWeatherCard() {
+	const { visibility, feelLike, humidity, pressure } = useGlobalContext();
+
 	return (
 		<section className="highlight-weather-wrapper">
 			<div className="bg-neutral-500 card highlights-weather-card">
@@ -22,7 +25,7 @@ function HighlightsWeatherCard() {
 					{/* Current Weather Stats Component: Humidity */}
 					<CurrentWeatherMetricsCard
 						statsTitle={"Humidity"}
-						statsValue={60}
+						statsValue={humidity}
 						statsIcon={
 							<WiHumidity className="text-neutral-200 icon icon--xxmedium icon--responsive" />
 						}
@@ -32,7 +35,7 @@ function HighlightsWeatherCard() {
 					{/* Current Weather Stats Component: Humidity */}
 					<CurrentWeatherMetricsCard
 						statsTitle={"Pressure"}
-						statsValue={1011}
+						statsValue={pressure}
 						statsIcon={
 							<LuWaves className="text-neutral-200 icon icon--xxmedium icon--responsive" />
 						}
@@ -42,7 +45,7 @@ function HighlightsWeatherCard() {
 					{/* Current Weather Stats Component: Humidity */}
 					<CurrentWeatherMetricsCard
 						statsTitle={"Visibility"}
-						statsValue={0.4}
+						statsValue={visibility}
 						statsIcon={
 							<PiEyeBold className="text-neutral-200 icon icon--xxmedium icon--responsive" />
 						}
@@ -52,7 +55,7 @@ function HighlightsWeatherCard() {
 					{/* Current Weather Stats Component: Humidity */}
 					<CurrentWeatherMetricsCard
 						statsTitle={"Feels Like"}
-						statsValue={-41}
+						statsValue={feelLike}
 						statsIcon={
 							<BsThermometerHalf className="text-neutral-200 icon icon--xxmedium icon--responsive" />
 						}

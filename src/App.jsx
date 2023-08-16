@@ -1,28 +1,16 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import {
-	Header,
-	CurrentWeather,
-	HourlyForecast,
-	DaysForecast,
-	TodayHighlights,
-	Error,
-} from "./component";
+import { Error } from "./component";
+import Home from "./Pages/Home";
 
 function App() {
-	return <Error />;
-
 	return (
-		<div className="app">
-			<Header />
-			<main>
-				<div className="container grid content-grid">
-					<CurrentWeather />
-					<DaysForecast />
-					<TodayHighlights />
-					<HourlyForecast />
-				</div>
-			</main>
-		</div>
+		<Router>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="*" element={<Error />} />
+			</Routes>
+		</Router>
 	);
 }
 
