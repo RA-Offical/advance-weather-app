@@ -10,6 +10,7 @@
 @import url(./component/HourlyForecast/HourlyForecast.css);
 @import url(./component/Header/Header.css);
 @import url(./component/SearchGroup/SearchGroup.css);
+@import url(./component/Error/Error.css);
 
 :root {
 	/* colors */

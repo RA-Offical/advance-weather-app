@@ -1,0 +1,10 @@
+.error {
+	height: 100vh;
+	height: 100dvh;
+	place-content: center;
+	flex-direction: column;
+}
+
+.error-content {
+	margin-left: 2em;
+}

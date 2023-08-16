@@ -362,6 +362,11 @@ sub {
 	transition-property: color, background, border-color;
 }
 
+.btn--primary {
+	background-color: var(--color-primary);
+	border-radius: 9999px;
+}
+
 /* content-grid */
 .content-grid {
 	padding-block: 10rem;

@@ -5,9 +5,12 @@ import {
 	HourlyForecast,
 	DaysForecast,
 	TodayHighlights,
+	Error,
 } from "./component";
 
 function App() {
+	return <Error />;
+
 	return (
 		<div className="app">
 			<Header />

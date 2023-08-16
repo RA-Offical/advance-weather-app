@@ -8,3 +8,4 @@ export { default as CurrentWeatherMetricsCard } from "./CurrentWeatherMetricsCar
 export { default as HourlyForecastCard } from "./HourlyForecastCard/HourlyForecastCard";
 export { default as Header } from "./Header/Header";
 export { default as SearchGroup } from "./SearchGroup/SearchGroup";
+export { default as Error } from "./Error/Error";
