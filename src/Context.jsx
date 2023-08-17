@@ -17,6 +17,7 @@ const initialState = {
 		pressure: 123,
 		humidity: 456,
 		feelLike: 300,
+		date: "Thursday 17, Aug",
 		weatherIcon: "01d",
 		coord: {
 			lat: 33.6938,

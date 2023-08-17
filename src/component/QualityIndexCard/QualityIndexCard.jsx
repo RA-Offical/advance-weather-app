@@ -33,7 +33,7 @@ function QualityIndexCard() {
 								</p>
 
 								<p className="text-neutral-200 font-dynamic-large  quality-index__gas-concentration">
-									{parseInt(value, 10)}
+									{value}
 								</p>
 							</li>
 						);

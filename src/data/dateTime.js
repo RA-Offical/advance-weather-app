@@ -10,7 +10,8 @@ const getTimeFromTimeStamp = (timeZoneShift, timeStamp) => {
 };
 
 const getDateFromTimeStamp = (timeZoneShift, timeStamp) => {
-	const date = new Date(t(timeZoneShift + timeStamp) * 1000);
+	console.log(timeZoneShift, timeStamp);
+	const date = new Date((timeZoneShift + timeStamp) * 1000);
 	const weekday = date.toLocaleString(undefined, {
 		weekday: "long",
 		timeZone: "UTC",
@@ -27,4 +28,4 @@ const getDateFromTimeStamp = (timeZoneShift, timeStamp) => {
 	return `${weekday} ${day}, ${month}`;
 };
 
-export { getTimeFromTimeStamp };
+export { getTimeFromTimeStamp, getDateFromTimeStamp };

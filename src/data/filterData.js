@@ -1,4 +1,4 @@
-import { getTimeFromTimeStamp } from "./dateTime";
+import { getDateFromTimeStamp, getTimeFromTimeStamp } from "./dateTime";
 import { convertKelvinToCelcius } from "./temperatureConverter";
 
 export const filterHintList = (hintListData) => {
@@ -35,6 +35,7 @@ export const filterCurrentWeatherData = (currentWeatherData) => {
 		sys: { sunrise, sunset, country },
 		timezone,
 		name,
+		dt,
 	} = currentWeatherData;
 
 	const { icon, main } = weather[0];
@@ -49,6 +50,7 @@ export const filterCurrentWeatherData = (currentWeatherData) => {
 			sunrise: getTimeFromTimeStamp(timezone, sunrise),
 			sunset: getTimeFromTimeStamp(timezone, sunset),
 		},
+		date: getDateFromTimeStamp(timezone, dt),
 		country,
 		cityName: name,
 		weatherCondition: main,

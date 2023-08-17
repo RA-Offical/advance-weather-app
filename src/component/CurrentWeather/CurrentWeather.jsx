@@ -6,6 +6,7 @@ import { useGlobalContext } from "../../Hooks/GlobalContext";
 function CurrentWeather() {
 	const {
 		currentWeather: {
+			date,
 			cityName,
 			weatherCondition,
 			currentTemperature,
@@ -46,7 +47,7 @@ function CurrentWeather() {
 					<li className="flex align-ic current-weather-information-list__item">
 						<BsFillCalendar2EventFill className="icon icon--small" />
 
-						<p className="text-neutral-300"> Thursday 2, Mar</p>
+						<p className="text-neutral-300">{date}</p>
 					</li>
 
 					{/* Location */}
