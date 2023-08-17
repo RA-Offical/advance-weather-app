@@ -1,6 +1,11 @@
 import { TbWind } from "react-icons/tb";
+import { useGlobalContext } from "../../Hooks/GlobalContext";
 
 function QualityIndexCard() {
+	const {
+		currentWeather: { airPollutionComponent },
+	} = useGlobalContext();
+
 	return (
 		<div className={`bg-neutral-600 card-small quality-index--card`}>
 			{/* header which shows quality index, poor, fair , good */}
@@ -17,49 +22,22 @@ function QualityIndexCard() {
 				<TbWind className="text-neutral-200 icon icon--xmedium" />
 
 				<ul className="flex align-ic quality-index-list">
-					{/* Gases item */}
-					<li className="grid quality-index-list__item">
-						<p className="font-static-small quality-index__gas">
-							PO25
-						</p>
+					{airPollutionComponent.map(({ key, value }) => {
+						return (
+							<li
+								key={key}
+								className="grid quality-index-list__item"
+							>
+								<p className="font-static-small quality-index__gas">
+									{key.toUpperCase()}
+								</p>
 
-						<p className="text-neutral-200 font-dynamic-large  quality-index__gas-concentration">
-							190
-						</p>
-					</li>
-
-					{/* Gases item */}
-					<li className="grid quality-index-list__item">
-						<p className="font-static-small quality-index__gas">
-							SO2
-						</p>
-
-						<p className="text-neutral-200 font-dynamic-large  quality-index__gas-concentration">
-							20
-						</p>
-					</li>
-
-					{/* Gases item */}
-					<li className="grid quality-index-list__item">
-						<p className="font-static-small quality-index__gas">
-							O3
-						</p>
-
-						<p className="text-neutral-200 font-dynamic-large  quality-index__gas-concentration">
-							60
-						</p>
-					</li>
-
-					{/* Gases item */}
-					<li className="grid quality-index-list__item">
-						<p className="font-static-small quality-index__gas">
-							NO2
-						</p>
-
-						<p className="text-neutral-200 font-dynamic-large  quality-index__gas-concentration">
-							80
-						</p>
-					</li>
+								<p className="text-neutral-200 font-dynamic-large  quality-index__gas-concentration">
+									{parseInt(value, 10)}
+								</p>
+							</li>
+						);
+					})}
 				</ul>
 			</div>
 		</div>

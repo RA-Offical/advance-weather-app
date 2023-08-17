@@ -4,8 +4,15 @@ import { FaLocationDot } from "react-icons/fa6";
 import { useGlobalContext } from "../../Hooks/GlobalContext";
 
 function CurrentWeather() {
-	const { name, weatherCondition, currentTemperature, country, state } =
-		useGlobalContext();
+	const {
+		currentWeather: {
+			cityName,
+			weatherCondition,
+			currentTemperature,
+			country,
+			weatherIcon,
+		},
+	} = useGlobalContext();
 
 	return (
 		<section className="current-weather-wrapper">
@@ -22,7 +29,10 @@ function CurrentWeather() {
 					</p>
 
 					{/* icon for current weather */}
-					<LuWaves className="icon" />
+					<img
+						className="icon"
+						src={`./weather_icons/${weatherIcon}.png`}
+					/>
 				</div>
 
 				{/* current weather condition e.g: cloudy, haze, rainy */}
@@ -44,7 +54,7 @@ function CurrentWeather() {
 						<FaLocationDot className="icon icon--small" />
 
 						<p className="text-neutral-300">
-							{country}, {state}
+							{cityName}, {country}
 						</p>
 					</li>
 				</ul>

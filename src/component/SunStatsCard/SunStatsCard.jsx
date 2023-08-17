@@ -4,7 +4,9 @@ import { useGlobalContext } from "../../Hooks/GlobalContext";
 
 function SunStatsCard() {
 	const {
-		sunStats: { sunrise, sunset },
+		currentWeather: {
+			sunStats: { sunrise, sunset },
+		},
 	} = useGlobalContext();
 
 	return (

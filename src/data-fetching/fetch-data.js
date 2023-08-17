@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const getAction = async (options) => {
-	console.log(options);
 	try {
 		const result = await axios({
 			method: "GET",

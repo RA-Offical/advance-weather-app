@@ -55,6 +55,7 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 	useEffect(() => {
 		// making sure loading is always false
 		setIsLoading(false);
+		// setSearchHintList([]);
 		if (!searchInput) return;
 
 		// variable just to avoid race condition because of network
