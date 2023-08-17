@@ -41,7 +41,13 @@ const initialState = {
 function AppProvider({ children }) {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	const setCurrrentWeather = (data) => {
+	/**
+	 *
+	 * @param {object} data
+	 *
+	 * dispatch for storing all current weather related data
+	 */
+	const setCurrentWeather = (data) => {
 		dispatch({ type: "SET_CURRENT_WEATHER_METRICS", payload: { data } });
 		// console.log(data);
 	};
@@ -52,27 +58,43 @@ function AppProvider({ children }) {
 		console.log(result.data);
 	};
 
+	/**
+	 *
+	 * @param {number} lat
+	 * @param {number} lon
+	 *
+	 * this function will get the weather details for today, also the pollution
+	 */
 	const getWeatherDataByCoordinates = async (lat, lon) => {
+		// making promise
 		const promiseArray = Promise.all([
 			fetchData(URL.getWeatherByCoordinates(lat, lon)),
 			fetchData(URL.getAirPollutionByCoordinates(lat, lon)),
 		]);
 
-		promiseArray.then((result) => {
-			console.log(result);
+		const newCurrentWeather = await promiseArray.then((result) => {
+			// filtering current weather result
 			const filteredCurrentWeatherData = filterCurrentWeatherData(
 				result[0]
 			);
 
+			// filtering air pollution results
 			const filteredCurrentWeatherAirPollutionData =
 				filterCurrentWeatherAirPollutionData(result[1]);
 
-			setCurrrentWeather({
+			// calling dispatch
+			return {
 				...filteredCurrentWeatherData,
 				...filteredCurrentWeatherAirPollutionData,
-			});
+			};
 		});
+
+		return newCurrentWeather;
 	};
+
+	/**
+	 * returning jsx
+	 */
 
 	return (
 		<AppContext.Provider
@@ -80,6 +102,7 @@ function AppProvider({ children }) {
 				...state,
 				getWeatherDataByQuery,
 				getWeatherDataByCoordinates,
+				setCurrentWeather,
 			}}
 		>
 			{children}

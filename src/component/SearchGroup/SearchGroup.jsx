@@ -6,14 +6,41 @@ import URL from "../../data/url";
 import fetchData from "../../data-fetching/fetch-data";
 import { filterHintList } from "../../data/filterData";
 import { useGlobalContext } from "../../Hooks/GlobalContext";
+import useCompoentVisbile from "../../Hooks/VisibilityController";
 
 function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
-	const { getWeatherDataByQuery, getWeatherDataByCoordinates } =
-		useGlobalContext();
+	const {
+		getWeatherDataByQuery,
+		getWeatherDataByCoordinates,
+		setCurrentWeather,
+	} = useGlobalContext();
 
 	const [isLoading, setIsLoading] = useState(false);
 	const [searchHintList, setSearchHintList] = useState([]);
 	const [searchInput, setSearchInput] = useState("");
+	const { isVisible, setIsVisible, containerRef } = useCompoentVisbile(
+		false,
+		handleHintListVisibility
+	);
+
+	/**
+	 *
+	 */
+
+	function handleHintListVisibility(e) {
+		const target = e.target;
+
+		if (
+			target.matches(".search-hintlist__item, .search-hintlist__item *")
+		) {
+			// for turning off search view if click is happened on list item in mobile mode
+			setIsMobileSearchVisible(false);
+			// for turning off search list if it is in the computer mode
+			setIsVisible(false);
+			// making sure list is empty
+			setSearchHintList([]);
+		}
+	}
 
 	/**
 	 * function when user does not choose from list
@@ -26,7 +53,9 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 		if (!searchInput) return;
 
 		// get weather data by query
-		getWeatherDataByQuery(searchInput);
+		getWeatherDataByQuery(searchInput).then((data) => {
+			setCurrentWeather(data);
+		});
 	};
 
 	/**
@@ -34,12 +63,12 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 	 */
 
 	const handleHintListItemClick = (e, id) => {
-		e.stopPropagation();
-
 		// functionality
 		const { lat, lon } = searchHintList[id];
 
-		getWeatherDataByCoordinates(lat, lon);
+		getWeatherDataByCoordinates(lat, lon).then((data) => {
+			setCurrentWeather(data);
+		});
 	};
 
 	/**
@@ -55,12 +84,17 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 	useEffect(() => {
 		// making sure loading is always false
 		setIsLoading(false);
-		// setSearchHintList([]);
-		if (!searchInput) return;
+
+		// if the search input is empty then make the hintlist empty
+		if (!searchInput) {
+			setSearchHintList([]);
+			return;
+		}
 
 		// variable just to avoid race condition because of network
 		let isCurrent = true;
 		setIsLoading(true);
+		setIsVisible(true);
 		// getting hint list
 		getHintList(searchInput).then((data) => {
 			const filteredHintList = filterHintList(data);
@@ -78,9 +112,11 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 	}, [searchInput]);
 
 	return (
+		// hint present class is used for showing hint list
+		// isMobileSearchVisible is use to control showing or hiding search view in mobile mode
 		<div
 			className={`search-wrapper ${
-				searchHintList.length > 0 ? "hint-present" : ""
+				searchHintList.length > 0 && isVisible ? "hint-present" : ""
 			} ${isMobileSearchVisible ? "" : "hidden"}`}
 		>
 			{/* input search group */}
@@ -103,7 +139,7 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 					</button>
 					{/* input */}
 
-					<div className="control">
+					<div className="control" ref={containerRef}>
 						<input
 							type="search"
 							className="search__input"
