@@ -5,6 +5,7 @@ import fetchData from "./data-fetching/fetch-data";
 import {
 	filterCurrentWeatherAirPollutionData,
 	filterCurrentWeatherData,
+	filterForecastData,
 } from "./data/filterData";
 
 // app context
@@ -12,7 +13,6 @@ const AppContext = createContext();
 
 // initial state
 const initialState = {
-	isError: false,
 	currentWeather: {
 		pressure: 123,
 		humidity: 456,
@@ -37,6 +37,7 @@ const initialState = {
 		sunStats: { sunrise: "6:20 A.M", sunset: "7:20 PM" },
 		cityName: "Islamabad",
 	},
+	hourlyForecast: [],
 };
 
 function AppProvider({ children }) {
@@ -51,6 +52,16 @@ function AppProvider({ children }) {
 	const setCurrentWeather = (data) => {
 		dispatch({ type: "SET_CURRENT_WEATHER_METRICS", payload: { data } });
 		// console.log(data);
+	};
+
+	/**
+	 *
+	 * @param {object} data
+	 *
+	 * dispatch for storing forecast data
+	 */
+	const setForecast = (data) => {
+		dispatch({ type: "SET_FORECAST", payload: { data } });
 	};
 
 	const getWeatherDataByQuery = async (name) => {
@@ -93,6 +104,16 @@ function AppProvider({ children }) {
 		return newCurrentWeather;
 	};
 
+	const getHourlyForecast = async (lat, lon) => {
+		const result = await fetchData(URL.getForecastByCoordinates(lat, lon));
+		const filteredForecastData = filterForecastData(
+			state.currentWeather.timezone,
+			result.list
+		);
+
+		return filteredForecastData;
+	};
+
 	/**
 	 * returning jsx
 	 */
@@ -104,6 +125,8 @@ function AppProvider({ children }) {
 				getWeatherDataByQuery,
 				getWeatherDataByCoordinates,
 				setCurrentWeather,
+				getHourlyForecast,
+				setForecast,
 			}}
 		>
 			{children}

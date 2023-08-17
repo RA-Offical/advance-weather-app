@@ -1,4 +1,9 @@
-import { getDateFromTimeStamp, getTimeFromTimeStamp } from "./dateTime";
+import {
+	getDateFromTimeStamp,
+	getHoursFromTimeStamp,
+	getTimeFromTimeStamp,
+} from "./dateTime";
+import { convertMpsToKmh } from "./speedConverter";
 import { convertKelvinToCelcius } from "./temperatureConverter";
 
 export const filterHintList = (hintListData) => {
@@ -58,4 +63,29 @@ export const filterCurrentWeatherData = (currentWeatherData) => {
 		visibility,
 		weatherIcon: icon,
 	};
+};
+
+export const filterForecastData = (timezone, forecastData) => {
+	const filteredForecastData = [];
+
+	for (const [key, value] of forecastData.entries()) {
+		if (key > 6) break;
+
+		const {
+			dt: timestamp,
+			main: { temp },
+			weather,
+			wind: { speed, deg },
+		} = value;
+
+		filteredForecastData.push({
+			time: getHoursFromTimeStamp(timezone, timestamp),
+			icon: weather[0].icon,
+			windSpeed: convertMpsToKmh(speed),
+			windDegree: deg,
+			temperature: convertKelvinToCelcius(temp),
+		});
+	}
+
+	return filteredForecastData;
 };

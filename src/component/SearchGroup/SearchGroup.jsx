@@ -13,6 +13,8 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 		getWeatherDataByQuery,
 		getWeatherDataByCoordinates,
 		setCurrentWeather,
+		getHourlyForecast,
+		setForecast,
 	} = useGlobalContext();
 
 	const [isLoading, setIsLoading] = useState(false);
@@ -68,6 +70,9 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 
 		getWeatherDataByCoordinates(lat, lon).then((data) => {
 			setCurrentWeather(data);
+		});
+		getHourlyForecast(lat, lon).then((data) => {
+			setForecast(data);
 		});
 	};
 

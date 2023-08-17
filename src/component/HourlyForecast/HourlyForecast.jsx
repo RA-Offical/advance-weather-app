@@ -1,9 +1,10 @@
-import { useEffect } from "react";
-import { MdSunny } from "react-icons/md";
+import directionImg from "../../assets/direction.png";
 import { HourlyForecastCard } from "..";
 import useGrabScroll from "../../Hooks/GrabScroll";
+import { useGlobalContext } from "../../Hooks/GlobalContext";
 
 function HourlyForecast() {
+	const { hourlyForecast } = useGlobalContext();
 	const sliderOneRef = useGrabScroll();
 	const sliderTwoRef = useGrabScroll();
 
@@ -18,170 +19,66 @@ function HourlyForecast() {
 					className="flex current-day-stats-container"
 					ref={sliderOneRef}
 				>
-					{/* seperate card for temeprature */}
-					<li>
-						<HourlyForecastCard
-							statsTime={"6AM"}
-							statsIcon={
-								<MdSunny className="text-neutral-200 icon icon-xxmd" />
-							}
-							statsValueUnit={
-								<>
-									&deg;<sup>C</sup>
-								</>
-							}
-							statsValue={41}
-						/>
-					</li>
-
-					{/* seperate card for temeprature */}
-					<li>
-						<HourlyForecastCard
-							statsTime={"6AM"}
-							statsIcon={
-								<MdSunny className="text-neutral-200 icon icon-xxmd" />
-							}
-							statsValueUnit={
-								<>
-									&deg;<sup>C</sup>
-								</>
-							}
-							statsValue={41}
-						/>
-					</li>
-
-					{/* seperate card for temeprature */}
-					<li>
-						<HourlyForecastCard
-							statsTime={"6AM"}
-							statsIcon={
-								<MdSunny className="text-neutral-200 icon icon-xxmd" />
-							}
-							statsValueUnit={
-								<>
-									&deg;<sup>C</sup>
-								</>
-							}
-							statsValue={41}
-						/>
-					</li>
-
-					{/* seperate card for temeprature */}
-					<li>
-						<HourlyForecastCard
-							statsTime={"6AM"}
-							statsIcon={
-								<MdSunny className="text-neutral-200 icon icon-xxmd" />
-							}
-							statsValueUnit={
-								<>
-									&deg;<sup>C</sup>
-								</>
-							}
-							statsValue={41}
-						/>
-					</li>
-
-					{/* seperate card for temeprature */}
-					<li>
-						<HourlyForecastCard
-							statsTime={"6AM"}
-							statsIcon={
-								<MdSunny className="text-neutral-200 icon icon-xxmd" />
-							}
-							statsValueUnit={
-								<>
-									&deg;<sup>C</sup>
-								</>
-							}
-							statsValue={41}
-						/>
-					</li>
+					{hourlyForecast.map(({ time, temperature, icon }) => {
+						/* seperate card for temeprature */
+						return (
+							<li key={time}>
+								<HourlyForecastCard
+									statsTime={time}
+									statsIcon={
+										<img
+											style={{ marginInline: "auto" }}
+											src={`./weather_icons/${icon}.png`}
+											className="text-neutral-200 icon icon-xxmd"
+											alt=""
+										/>
+									}
+									statsValueUnit={
+										<>
+											&deg;<sup>C</sup>
+										</>
+									}
+									statsValue={temperature}
+								/>
+							</li>
+						);
+					})}
 				</ul>
 
 				<ul
 					className="flex current-day-stats-container"
 					ref={sliderTwoRef}
 				>
-					{/* seperate card for temeprature */}
-					<li>
-						<HourlyForecastCard
-							statsTime={"6AM"}
-							statsIcon={
-								<MdSunny className="text-neutral-200 icon icon-xxmd" />
-							}
-							statsValueUnit={
-								<>
-									&deg;<sup>C</sup>
-								</>
-							}
-							statsValue={41}
-						/>
-					</li>
+					{hourlyForecast.map(({ time, windSpeed, windDegree }) => {
+						/* seperate card for temeprature */
 
-					{/* seperate card for temeprature */}
-					<li>
-						<HourlyForecastCard
-							statsTime={"6AM"}
-							statsIcon={
-								<MdSunny className="text-neutral-200 icon icon-xxmd" />
-							}
-							statsValueUnit={
-								<>
-									&deg;<sup>C</sup>
-								</>
-							}
-							statsValue={41}
-						/>
-					</li>
-
-					{/* seperate card for temeprature */}
-					<li>
-						<HourlyForecastCard
-							statsTime={"6AM"}
-							statsIcon={
-								<MdSunny className="text-neutral-200 icon icon-xxmd" />
-							}
-							statsValueUnit={
-								<>
-									&deg;<sup>C</sup>
-								</>
-							}
-							statsValue={41}
-						/>
-					</li>
-
-					{/* seperate card for temeprature */}
-					<li>
-						<HourlyForecastCard
-							statsTime={"6AM"}
-							statsIcon={
-								<MdSunny className="text-neutral-200 icon icon-xxmd" />
-							}
-							statsValueUnit={
-								<>
-									&deg;<sup>C</sup>
-								</>
-							}
-							statsValue={41}
-						/>
-					</li>
-
-					{/* seperate card for temeprature */}
-					<li>
-						<HourlyForecastCard
-							statsTime={"6AM"}
-							statsIcon={
-								<MdSunny className="text-neutral-200 icon icon-xxmd" />
-							}
-							statsValueUnit={
-								<>
-									&deg;<sup>C</sup>
-								</>
-							}
-							statsValue={41}
-						/>
-					</li>
+						return (
+							<li key={time}>
+								<HourlyForecastCard
+									statsTime={time}
+									statsIcon={
+										<img
+											style={{
+												marginInline: "auto",
+												transform: `rotateZ(
+													${windDegree}deg
+												)`,
+											}}
+											src={directionImg}
+											className="text-neutral-200 icon icon-xxmd"
+											alt=""
+										/>
+									}
+									statsValueUnit={
+										<>
+											<sub>kmh</sub>
+										</>
+									}
+									statsValue={windSpeed}
+								/>
+							</li>
+						);
+					})}
 				</ul>
 			</div>
 		</section>
