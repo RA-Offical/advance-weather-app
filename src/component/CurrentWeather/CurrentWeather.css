@@ -1,5 +1,5 @@
 .current-weather-wrapper {
-	grid-area: current-weather;
+	/* grid-area: current-weather; */
 }
 
 .current-weather-information-list__item {

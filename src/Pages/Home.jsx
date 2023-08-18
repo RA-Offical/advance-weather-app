@@ -12,10 +12,14 @@ function Home() {
 			<Header />
 			<main>
 				<div className="container grid content-grid">
-					<CurrentWeather />
-					<DaysForecast />
-					<TodayHighlights />
-					<HourlyForecast />
+					<div className="content-grid-left-section">
+						<CurrentWeather />
+						<DaysForecast />
+					</div>
+					<div className="content-grid-right-section">
+						<TodayHighlights />
+						<HourlyForecast />
+					</div>
 				</div>
 			</main>
 		</div>

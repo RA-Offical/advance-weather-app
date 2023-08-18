@@ -279,7 +279,7 @@ sub {
 
 /* container */
 .container {
-	--max-width: 1400px;
+	--max-width: 1800px;
 	--dynamic-width: 93%;
 	--x-padding: 0;
 
@@ -371,18 +371,11 @@ sub {
 .content-grid {
 	padding-block: 10rem;
 	gap: 4rem;
-	grid-template-areas:
-		"current-weather"
-		"forecast-weather"
-		"current-highlight"
-		"current-day-highlight";
+	/* position: relative; */
 }
 
 @media screen and (min-width: 55em) {
 	.content-grid {
-		grid-template-areas:
-			"current-weather forecast-weather"
-			"current-highlight current-highlight"
-			"current-day-highlight current-day-highlight";
+		grid-template-columns: minmax(35rem, 45rem) 1fr;
 	}
 }

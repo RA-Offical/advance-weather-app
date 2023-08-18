@@ -1,5 +1,5 @@
 .current-weather-day-stats-container {
-	grid-area: current-day-highlight;
+	/* grid-area: current-day-highlight; */
 }
 
 .current-day-stats-content {
