@@ -50,8 +50,6 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 		) {
 			// for turning off search list if it is in the computer mode
 			setIsVisible(false);
-			// making sure list is empty
-			// setSearchHintList([]);
 		} else if (
 			searchHintList.length > 0 &&
 			containerRef.current.contains(target)
@@ -69,11 +67,6 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 		e.preventDefault();
 
 		if (!searchInput) return;
-
-		// get weather data by query
-		getWeatherDataByQuery(searchInput).then((data) => {
-			setCurrentWeather(data);
-		});
 	};
 
 	/**
@@ -83,13 +76,6 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 	const handleHintListItemClick = (e, id) => {
 		// functionality
 		const { lat, lon } = searchHintList[id];
-
-		getWeatherDataByCoordinates(lat, lon).then((data) => {
-			setCurrentWeather(data);
-		});
-		getHourlyForecast(lat, lon).then((data) => {
-			setForecast(data);
-		});
 	};
 
 	/**

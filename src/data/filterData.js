@@ -1,7 +1,9 @@
 import {
 	getDateFromTimeStamp,
+	getDayMonth,
 	getHoursFromTimeStamp,
 	getTimeFromTimeStamp,
+	getWeekdayFromTimeStamp,
 } from "./dateTime";
 import { convertMpsToKmh } from "./speedConverter";
 import { convertKelvinToCelcius } from "./temperatureConverter";
@@ -33,7 +35,6 @@ export const filterCurrentWeatherAirPollutionData = (
 
 export const filterCurrentWeatherData = (currentWeatherData) => {
 	const {
-		coord,
 		weather,
 		main: { temp, feels_like, pressure, humidity },
 		visibility,
@@ -46,7 +47,6 @@ export const filterCurrentWeatherData = (currentWeatherData) => {
 	const { icon, main } = weather[0];
 
 	return {
-		coord,
 		currentTemperature: convertKelvinToCelcius(temp),
 		feelLike: convertKelvinToCelcius(feels_like),
 		pressure,
@@ -59,13 +59,17 @@ export const filterCurrentWeatherData = (currentWeatherData) => {
 		country,
 		cityName: name,
 		weatherCondition: main,
-		timezone: timezone,
 		visibility,
 		weatherIcon: icon,
 	};
 };
 
-export const filterForecastData = (timezone, forecastData) => {
+export const filterWeatherLocationData = (currentWeatherData) => {
+	const { timezone, coord } = currentWeatherData;
+	return { timezone, coord };
+};
+
+export const filterHourlyForecastData = (timezone, forecastData) => {
 	const filteredForecastData = [];
 
 	for (const [key, value] of forecastData.entries()) {
@@ -91,5 +95,25 @@ export const filterForecastData = (timezone, forecastData) => {
 };
 
 export const filterDaysForecastData = (timezone, forecastData) => {
-	for (let i = 7, len = forecastData.length; i < len; i += 8) {}
+	const filteredDaysForecastData = [];
+
+	for (let i = 7, len = forecastData.length; i < len; i += 8) {
+		const {
+			dt,
+			weather,
+			main: { temp_max },
+		} = forecastData[i];
+		const icon = weather[0].icon;
+		const weekday = getWeekdayFromTimeStamp(timezone, dt);
+		const date = getDayMonth(timezone, dt);
+
+		filteredDaysForecastData.push({
+			weekday,
+			icon,
+			date,
+			temperature: convertKelvinToCelcius(temp_max),
+		});
+	}
+
+	return filteredDaysForecastData;
 };

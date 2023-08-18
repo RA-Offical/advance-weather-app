@@ -1,11 +1,13 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import reducer from "./reducer";
 import URL from "./data/url";
 import fetchData from "./data-fetching/fetch-data";
 import {
 	filterCurrentWeatherAirPollutionData,
 	filterCurrentWeatherData,
-	filterForecastData,
+	filterDaysForecastData,
+	filterHourlyForecastData,
+	filterWeatherLocationData,
 } from "./data/filterData";
 
 // app context
@@ -21,10 +23,6 @@ const initialState = {
 		feelLike: 300,
 		date: "Thursday 17, Aug",
 		weatherIcon: "01d",
-		coord: {
-			lat: 33.6938,
-			lon: 73.0652,
-		},
 		airPollutionComponent: [
 			{ key: "NO2", value: "56.00" },
 			{ key: "SO2", value: "87" },
@@ -40,6 +38,7 @@ const initialState = {
 		cityName: "Islamabad",
 	},
 	hourlyForecast: [],
+	daysForecast: [],
 };
 
 function AppProvider({ children }) {
@@ -60,75 +59,74 @@ function AppProvider({ children }) {
 	 *
 	 * @param {object} data
 	 *
-	 * dispatch for storing forecast data
+	 * dispatch for storing hourly forecast data
 	 */
-	const setForecast = (data) => {
+	const setHourlyForecast = (data) => {
 		dispatch({ type: "SET_FORECAST", payload: { data } });
-	};
-
-	const getWeatherDataByQuery = async (name) => {
-		const result = await fetchData(URL.getWeatherByQuery(name));
-
-		console.log(result.data);
 	};
 
 	/**
 	 *
-	 * @param {number} lat
-	 * @param {number} lon
+	 * @param {object} data
 	 *
-	 * this function will get the weather details for today, also the pollution
+	 * dispatch for storing days forecast data
 	 */
-	const getWeatherDataByCoordinates = async (lat, lon) => {
-		// making promise
+	const setDaysForecast = (data) => {
+		dispatch({ type: "SET_DAYS_FORECAST", payload: { data } });
+	};
+
+	const getAllWeatherData = async () => {
+		const { lat, lon } = state.coord;
 		const promiseArray = Promise.all([
 			fetchData(URL.getWeatherByCoordinates(lat, lon)),
+
 			fetchData(URL.getAirPollutionByCoordinates(lat, lon)),
+
+			fetchData(URL.getForecastByCoordinates(lat, lon)),
 		]);
 
-		const newCurrentWeather = await promiseArray.then((result) => {
-			// filtering current weather result
-			const filteredCurrentWeatherData = filterCurrentWeatherData(
+		promiseArray.then((result) => {
+			const filteredWeatherLocationData = filterWeatherLocationData(
 				result[0]
 			);
 
-			// filtering air pollution results
+			const filteredCurrentWeatherData = filterCurrentWeatherData(
+				result[0]
+			);
 			const filteredCurrentWeatherAirPollutionData =
 				filterCurrentWeatherAirPollutionData(result[1]);
 
-			// calling dispatch
-			return {
+			const filteredHourlyForecastData = filterHourlyForecastData(
+				filteredWeatherLocationData.timezone,
+				result[2].list
+			);
+			const filteredDaysForecastData = filterDaysForecastData(
+				filteredWeatherLocationData.timezone,
+				result[2].list
+			);
+
+			setCurrentWeather({
 				...filteredCurrentWeatherData,
 				...filteredCurrentWeatherAirPollutionData,
-			};
+			});
+			setHourlyForecast(filteredHourlyForecastData);
+
+			setDaysForecast(filteredDaysForecastData);
 		});
-
-		return newCurrentWeather;
-	};
-
-	const getHourlyForecast = async (lat, lon) => {
-		const result = await fetchData(URL.getForecastByCoordinates(lat, lon));
-		const filteredForecastData = filterForecastData(
-			state.currentWeather.timezone,
-			result.list
-		);
-
-		return filteredForecastData;
 	};
 
 	/**
 	 * returning jsx
 	 */
 
+	useEffect(() => {
+		getAllWeatherData();
+	}, [state.coord]);
+
 	return (
 		<AppContext.Provider
 			value={{
 				...state,
-				getWeatherDataByQuery,
-				getWeatherDataByCoordinates,
-				setCurrentWeather,
-				getHourlyForecast,
-				setForecast,
 			}}
 		>
 			{children}
