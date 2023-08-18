@@ -9,13 +9,8 @@ import { useGlobalContext } from "../../Hooks/GlobalContext";
 import useCompoentVisbile from "../../Hooks/VisibilityController";
 
 function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
-	const {
-		getWeatherDataByQuery,
-		getWeatherDataByCoordinates,
-		setCurrentWeather,
-		getHourlyForecast,
-		setForecast,
-	} = useGlobalContext();
+	const { getLocationCoordinates, setLocationCoordinates } =
+		useGlobalContext();
 
 	const [isLoading, setIsLoading] = useState(false);
 	const [searchHintList, setSearchHintList] = useState([]);
@@ -50,11 +45,6 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 		) {
 			// for turning off search list if it is in the computer mode
 			setIsVisible(false);
-		} else if (
-			searchHintList.length > 0 &&
-			containerRef.current.contains(target)
-		) {
-			setIsVisible(true);
 		}
 	}
 
@@ -64,9 +54,14 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 
 	const handleSubmit = (e) => {
 		// stop form from submitting
+		setIsVisible(false);
+		setIsMobileSearchVisible(false);
+		setSearchHintList([]);
+		setSearchInput("");
 		e.preventDefault();
 
 		if (!searchInput) return;
+		getLocationCoordinates(searchInput);
 	};
 
 	/**
@@ -76,6 +71,7 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 	const handleHintListItemClick = (e, id) => {
 		// functionality
 		const { lat, lon } = searchHintList[id];
+		setLocationCoordinates({ lat, lon });
 	};
 
 	/**
@@ -154,9 +150,6 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 							autoFocus
 							value={searchInput}
 							onChange={(e) => setSearchInput(e.target.value)}
-							onClick={(e) => {
-								console.log("click");
-							}}
 						/>
 
 						{/* loader */}

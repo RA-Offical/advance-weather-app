@@ -3,9 +3,6 @@ import { BsFillMoonFill } from "react-icons/bs";
 import { useGlobalContext } from "../../Hooks/GlobalContext";
 
 function SunStatsCard() {
-	const { currentWeather } = useGlobalContext();
-
-	console.log(currentWeather);
 	const {
 		currentWeather: {
 			sunStats: { sunrise, sunset },

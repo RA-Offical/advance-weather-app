@@ -17,7 +17,10 @@ function DayForecast() {
 						({ icon, date, weekday, temperature }) => {
 							return (
 								/* forecast list item, containing status of weather, time and date */
-								<li className="flex align-ic forecast-list__item">
+								<li
+									key={date}
+									className="flex align-ic forecast-list__item"
+								>
 									<div className="flex align-ic forecast-list-temperature-container">
 										<img
 											src={`./weather_icons/${icon}.png`}

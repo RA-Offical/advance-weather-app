@@ -67,6 +67,14 @@ function AppProvider({ children }) {
 
 	/**
 	 *
+	 */
+
+	const setLocationCoordinates = (coord) => {
+		dispatch({ type: "SET_LOCATION_COORD", payload: { coord } });
+	};
+
+	/**
+	 *
 	 * @param {object} data
 	 *
 	 * dispatch for storing days forecast data
@@ -75,6 +83,17 @@ function AppProvider({ children }) {
 		dispatch({ type: "SET_DAYS_FORECAST", payload: { data } });
 	};
 
+	const getLocationCoordinates = async (query) => {
+		const result = await fetchData(URL.getWeatherByQuery(query));
+
+		const { coord } = result;
+
+		setLocationCoordinates(coord);
+	};
+
+	/**
+	 * get all weather related data
+	 */
 	const getAllWeatherData = async () => {
 		const { lat, lon } = state.coord;
 		const promiseArray = Promise.all([
@@ -127,6 +146,8 @@ function AppProvider({ children }) {
 		<AppContext.Provider
 			value={{
 				...state,
+				getLocationCoordinates,
+				setLocationCoordinates,
 			}}
 		>
 			{children}
