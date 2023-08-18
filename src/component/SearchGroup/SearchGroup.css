@@ -104,6 +104,10 @@
 		position: fixed;
 		inset: 0;
 	}
+
+	.search-hintlist {
+		display: block !important;
+	}
 }
 
 @media screen and (min-width: 60em) {

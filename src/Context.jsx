@@ -13,6 +13,8 @@ const AppContext = createContext();
 
 // initial state
 const initialState = {
+	coord: { lat: 51.5085, lon: -0.1257 },
+	timezone: 3600,
 	currentWeather: {
 		pressure: 123,
 		humidity: 456,

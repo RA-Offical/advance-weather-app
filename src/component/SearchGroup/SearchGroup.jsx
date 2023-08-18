@@ -41,6 +41,22 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 			setIsVisible(false);
 			// making sure list is empty
 			setSearchHintList([]);
+
+			//making search input empty
+			setSearchInput("");
+		} /*if click in desktop view outside of searchbar*/ else if (
+			!isMobileSearchVisible &&
+			!containerRef.current.contains(target)
+		) {
+			// for turning off search list if it is in the computer mode
+			setIsVisible(false);
+			// making sure list is empty
+			// setSearchHintList([]);
+		} else if (
+			searchHintList.length > 0 &&
+			containerRef.current.contains(target)
+		) {
+			setIsVisible(true);
 		}
 	}
 
@@ -152,6 +168,9 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 							autoFocus
 							value={searchInput}
 							onChange={(e) => setSearchInput(e.target.value)}
+							onClick={(e) => {
+								console.log("click");
+							}}
 						/>
 
 						{/* loader */}

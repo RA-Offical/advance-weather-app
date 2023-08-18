@@ -89,3 +89,7 @@ export const filterForecastData = (timezone, forecastData) => {
 
 	return filteredForecastData;
 };
+
+export const filterDaysForecastData = (timezone, forecastData) => {
+	for (let i = 7, len = forecastData.length; i < len; i += 8) {}
+};
