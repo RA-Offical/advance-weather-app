@@ -9,9 +9,10 @@ const getAction = async (options) => {
 
 		return result.data;
 	} catch (error) {
+		console.log(error.message);
 		if (error.response) {
 			console.log("Response Error");
-			console.log(error.response);
+			console.log(error.response.data.statusText);
 		} else if (error.request) {
 			console.log("Request Error");
 			console.log(error.request);
