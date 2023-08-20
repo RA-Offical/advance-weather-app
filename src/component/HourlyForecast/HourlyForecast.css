@@ -1,12 +1,9 @@
-.current-weather-day-stats-container {
-	/* grid-area: current-day-highlight; */
-}
-
 .current-day-stats-content {
 	gap: 2rem;
 }
 
 .current-day-stats-container {
+	padding-block: 1rem;
 	cursor: grab;
 	overflow: auto;
 	gap: 2rem;

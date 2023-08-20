@@ -90,6 +90,7 @@ html:focus-within {
 
 ::-webkit-scrollbar-track {
 	background-color: var(--color-neutral-500);
+	border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb {
