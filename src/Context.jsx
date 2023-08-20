@@ -1,4 +1,5 @@
 import { createContext, useEffect, useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 import reducer from "./reducer";
 import URL from "./data/url";
 import fetchData from "./data-fetching/fetch-data";
@@ -43,6 +44,7 @@ const initialState = {
 
 function AppProvider({ children }) {
 	const [state, dispatch] = useReducer(reducer, initialState);
+	const navigate = useNavigate();
 
 	/**
 	 *
@@ -86,6 +88,11 @@ function AppProvider({ children }) {
 	const getLocationCoordinates = async (query) => {
 		const result = await fetchData(URL.getWeatherByQuery(query));
 
+		if (result.code) {
+			navigate("error", { state: { result } });
+			return;
+		}
+
 		const { coord } = result;
 
 		setLocationCoordinates(coord);
@@ -105,6 +112,11 @@ function AppProvider({ children }) {
 		]);
 
 		promiseArray.then((result) => {
+			if (result[2].code) {
+				navigate("error", { state: { result: result[2] } });
+				return;
+			}
+
 			const filteredWeatherLocationData = filterWeatherLocationData(
 				result[0]
 			);
@@ -129,7 +141,6 @@ function AppProvider({ children }) {
 				...filteredCurrentWeatherAirPollutionData,
 			});
 			setHourlyForecast(filteredHourlyForecastData);
-
 			setDaysForecast(filteredDaysForecastData);
 		});
 	};

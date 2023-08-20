@@ -8,7 +8,7 @@
 
 .current-day-stats-container {
 	cursor: grab;
-	overflow: hidden;
+	overflow: auto;
 	gap: 2rem;
 }
 

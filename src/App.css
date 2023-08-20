@@ -374,6 +374,15 @@ sub {
 	/* position: relative; */
 }
 
+.content-grid-left-section {
+	align-content: flex-start;
+	gap: 4rem;
+}
+
+.content-grid-right-section {
+	gap: 4rem;
+}
+
 @media screen and (min-width: 55em) {
 	.content-grid {
 		grid-template-columns: minmax(35rem, 45rem) 1fr;

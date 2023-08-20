@@ -96,17 +96,25 @@ function SearchGroup({ isMobileSearchVisible, setIsMobileSearchVisible }) {
 
 		// variable just to avoid race condition because of network
 		let isCurrent = true;
+
 		setIsLoading(true);
 		setIsVisible(true);
 		// getting hint list
 		getHintList(searchInput).then((data) => {
-			const filteredHintList = filterHintList(data);
+			// if render is not current then don't set state
+			if (!isCurrent) return;
 
-			// setting hint list
-			if (isCurrent) {
-				setIsLoading(false);
-				setSearchHintList(filteredHintList);
+			// make loader false
+			setIsLoading(false);
+
+			// if error happen, make this search list false;
+			if (data.code) {
+				setSearchHintList([]);
+				return;
 			}
+
+			const filteredHintList = filterHintList(data);
+			setSearchHintList(filteredHintList);
 		});
 
 		return () => {

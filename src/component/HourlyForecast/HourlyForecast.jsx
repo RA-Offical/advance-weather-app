@@ -5,8 +5,8 @@ import { useGlobalContext } from "../../Hooks/GlobalContext";
 
 function HourlyForecast() {
 	const { hourlyForecast } = useGlobalContext();
-	const sliderOneRef = useGrabScroll();
-	const sliderTwoRef = useGrabScroll();
+	// const sliderOneRef = useGrabScroll();
+	// const sliderTwoRef = useGrabScroll();
 
 	return (
 		<section className="current-weather-day-stats-container">
@@ -15,10 +15,7 @@ function HourlyForecast() {
 			</h2>
 
 			<div className="grid current-day-stats-content">
-				<ul
-					className="flex current-day-stats-container"
-					ref={sliderOneRef}
-				>
+				<ul className="flex current-day-stats-container">
 					{hourlyForecast.map(({ time, temperature, icon }) => {
 						/* seperate card for temeprature */
 						return (
@@ -45,10 +42,7 @@ function HourlyForecast() {
 					})}
 				</ul>
 
-				<ul
-					className="flex current-day-stats-container"
-					ref={sliderTwoRef}
-				>
+				<ul className="flex current-day-stats-container">
 					{hourlyForecast.map(({ time, windSpeed, windDegree }) => {
 						/* seperate card for temeprature */
 

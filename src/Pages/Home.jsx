@@ -12,11 +12,11 @@ function Home() {
 			<Header />
 			<main>
 				<div className="container grid content-grid">
-					<div className="content-grid-left-section">
+					<div className="grid content-grid-left-section">
 						<CurrentWeather />
 						<DaysForecast />
 					</div>
-					<div className="content-grid-right-section">
+					<div className="grid content-grid-right-section">
 						<TodayHighlights />
 						<HourlyForecast />
 					</div>

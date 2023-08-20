@@ -9,16 +9,13 @@ const getAction = async (options) => {
 
 		return result.data;
 	} catch (error) {
-		console.log(error.message);
 		if (error.response) {
-			console.log("Response Error");
-			console.log(error.response.data.statusText);
+			const { cod, message } = error.response.data;
+			return { code: cod, message };
 		} else if (error.request) {
-			console.log("Request Error");
-			console.log(error.request);
-		} else {
-			console.log(error);
+			return { code: error.code, message: error.message };
 		}
+		return { code: "Unkown Error", message: "Try Again" };
 	}
 };
 
