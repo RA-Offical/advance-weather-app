@@ -1,8 +1,15 @@
-# React + Vite
+## Advance Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+-   By default, display weather of London
+-   Can fetch weather based on your current location
+-   Can fetch weather by city name
 
-Currently, two official plugins are available:
+## Project Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Project is setup using vite. You can run this project using following commands
+
+```javascript
+npm install
+npm run dev
+npm run host  // for viewing website on a network
+```
