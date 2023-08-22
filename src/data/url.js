@@ -16,7 +16,7 @@ const URL = {
 			import.meta.env.VITE_API_KEY
 		}`,
 	getHintList: (query) =>
-		`http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${
+		`https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${
 			import.meta.env.VITE_API_KEY
 		}`,
 };
