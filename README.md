@@ -1,3 +1,6 @@
+## Live Preview
+  https://advance-weather-app.netlify.app/
+
 ## Advance Weather App
 
 -   By default, display weather of London
