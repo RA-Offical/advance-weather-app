@@ -20,7 +20,7 @@ function Header() {
 
 	return (
 		<header className="header">
-			<div className="container pt-lg pb-lg flex align-ic">
+			<div className="container flex align-ic">
 				<a href="#" className="logo">
 					<img src={logoImg} className="logo__img" alt="watherio" />
 				</a>

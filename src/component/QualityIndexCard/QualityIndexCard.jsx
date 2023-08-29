@@ -2,9 +2,10 @@ import { TbWind } from "react-icons/tb";
 import { useGlobalContext } from "../../Hooks/GlobalContext";
 
 function QualityIndexCard() {
-	const {
-		currentWeather: { airPollutionComponent },
-	} = useGlobalContext();
+	const { currentWeather } = useGlobalContext();
+
+	const { airPollutionComponent } = currentWeather;
+	// console.log(currentWeather);
 
 	return (
 		<div className={`bg-neutral-600 card-small quality-index--card`}>

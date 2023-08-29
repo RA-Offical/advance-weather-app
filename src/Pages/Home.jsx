@@ -1,3 +1,5 @@
+import { useGlobalContext } from "../Hooks/GlobalContext";
+import { Loader } from "../component";
 import {
 	Header,
 	CurrentWeather,
@@ -7,20 +9,28 @@ import {
 } from "../component";
 
 function Home() {
+	const { isLoading } = useGlobalContext();
+
 	return (
 		<div className="app">
 			<Header />
 			<main>
-				<div className="container grid content-grid">
-					<div className="grid content-grid-left-section">
-						<CurrentWeather />
-						<DaysForecast />
-					</div>
-					<div className="grid content-grid-right-section">
-						<TodayHighlights />
-						<HourlyForecast />
-					</div>
-				</div>
+				{isLoading ? (
+					<Loader />
+				) : (
+					<>
+						<div className="container grid content-grid">
+							<div className="grid content-grid-left-section">
+								<CurrentWeather />
+								<DaysForecast />
+							</div>
+							<div className="grid content-grid-right-section">
+								<TodayHighlights />
+								<HourlyForecast />
+							</div>
+						</div>
+					</>
+				)}
 			</main>
 		</div>
 	);

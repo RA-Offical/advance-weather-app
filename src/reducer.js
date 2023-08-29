@@ -7,6 +7,8 @@ const reducer = (state, action) => {
 		return { ...state, daysForecast: action.payload.data };
 	} else if (action.type === "SET_LOCATION_COORD") {
 		return { ...state, coord: action.payload.coord };
+	} else if (action.type === "SET_LOADER") {
+		return { ...state, isLoading: action.payload.isLoading };
 	}
 
 	return state;

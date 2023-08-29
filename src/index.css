@@ -11,6 +11,7 @@
 @import url(./component/Header/Header.css);
 @import url(./component/SearchGroup/SearchGroup.css);
 @import url(./component/Error/Error.css);
+@import url(./component/Loader/Loader.css);
 
 :root {
 	/* colors */
@@ -56,6 +57,8 @@
 	--border-radius-100: 1.6rem;
 	--border-radius-200: 2.6rem;
 	--border-radius-full: 9999px;
+	/* header height */
+	--header-height: 10rem;
 }
 
 /* Box sizing rules */

@@ -25,6 +25,7 @@ const fetchData = async (url) => {
 		headers: {
 			Accept: "application/json",
 		},
+		timeout: 10000,
 	};
 
 	return await getAction(options);

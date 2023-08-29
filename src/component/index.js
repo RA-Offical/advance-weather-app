@@ -9,3 +9,4 @@ export { default as HourlyForecastCard } from "./HourlyForecastCard/HourlyForeca
 export { default as Header } from "./Header/Header";
 export { default as SearchGroup } from "./SearchGroup/SearchGroup";
 export { default as Error } from "./Error/Error";
+export { default as Loader } from "./Loader/Loader";

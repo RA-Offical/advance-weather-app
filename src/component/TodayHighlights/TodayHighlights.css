@@ -1,7 +1,3 @@
-.highlight-weather-wrapper {
-	/* grid-area: current-highlight; */
-}
-
 .highlight-weather-card-body {
 	grid-template-areas:
 		"quality-index quality-index"

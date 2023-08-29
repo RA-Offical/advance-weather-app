@@ -16,6 +16,7 @@ const AppContext = createContext();
 
 // initial state
 const initialState = {
+	isLoading: true,
 	coord: { lat: 51.5085, lon: -0.1257 },
 	timezone: 3600,
 	currentWeather: {
@@ -45,6 +46,13 @@ function AppProvider({ children }) {
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const navigate = useNavigate();
 
+	/**
+	 * Loader dispatch
+	 */
+
+	const setLoader = (value) => {
+		dispatch({ type: "SET_LOADER", payload: { isLoading: value } });
+	};
 	/**
 	 *
 	 * @param {object} data
@@ -101,6 +109,7 @@ function AppProvider({ children }) {
 	 * get all weather related data
 	 */
 	const getAllWeatherData = async () => {
+		setLoader(true);
 		const { lat, lon } = state.coord;
 		const promiseArray = Promise.all([
 			fetchData(URL.getWeatherByCoordinates(lat, lon)),
@@ -111,6 +120,7 @@ function AppProvider({ children }) {
 		]);
 
 		promiseArray.then((result) => {
+			setLoader(false);
 			if (result[2].code) {
 				navigate("error", { state: { result: result[2] } });
 				return;
