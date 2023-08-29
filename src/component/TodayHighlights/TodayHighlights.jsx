@@ -6,9 +6,9 @@ import { BsThermometerHalf } from "react-icons/bs";
 import { useGlobalContext } from "../../Hooks/GlobalContext";
 
 function HighlightsWeatherCard() {
-	const {
-		currentWeather: { visibility, feelLike, humidity, pressure },
-	} = useGlobalContext();
+	const { currentWeather } = useGlobalContext();
+
+	const { visibility, feelLike, humidity, pressure } = currentWeather;
 
 	return (
 		<section className="highlight-weather-wrapper">

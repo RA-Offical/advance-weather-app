@@ -1,11 +1,11 @@
 import { TbWind } from "react-icons/tb";
 import { useGlobalContext } from "../../Hooks/GlobalContext";
+import { aqiMap } from "../../data/aqiMap";
 
 function QualityIndexCard() {
 	const { currentWeather } = useGlobalContext();
 
-	const { airPollutionComponent } = currentWeather;
-	// console.log(currentWeather);
+	const { aqi, airPollutionComponent } = currentWeather;
 
 	return (
 		<div className={`bg-neutral-600 card-small quality-index--card`}>
@@ -13,8 +13,12 @@ function QualityIndexCard() {
 			<header className="flex align-ic mb-md quality-index-header">
 				<h3 className="font-static-small">Air Quality Index</h3>
 
-				<p className="font-static-small border-radius-full quality-index__value quality-index__value--good">
-					Fair
+				<p
+					className={`font-static-small border-radius-full quality-index__value quality-index__value--${aqiMap(
+						aqi
+					)}`}
+				>
+					{aqiMap(aqi)}
 				</p>
 			</header>
 

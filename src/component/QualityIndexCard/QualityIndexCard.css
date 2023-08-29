@@ -8,11 +8,20 @@
 
 .quality-index__value {
 	padding: 0.2em 1em;
+	text-transform: capitalize;
 }
 
 .quality-index__value--good {
 	background-color: var(--color-good-200);
 	color: var(--color-good-100);
+}
+.quality-index__value--fair {
+	background-color: var(--color-fair-200);
+	color: var(--color-fair-100);
+}
+.quality-index__value--poor {
+	background-color: var(--color-poor-200);
+	color: var(--color-poor-100);
 }
 
 .quality-index-body {
