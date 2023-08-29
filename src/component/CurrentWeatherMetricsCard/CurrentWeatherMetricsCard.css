@@ -4,4 +4,5 @@
 
 .weather-stats-container {
 	justify-content: space-between;
+	flex-wrap: wrap;
 }
