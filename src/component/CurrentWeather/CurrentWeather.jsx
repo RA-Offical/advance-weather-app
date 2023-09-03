@@ -1,4 +1,3 @@
-import { LuWaves } from "react-icons/lu";
 import { BsFillCalendar2EventFill } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import { useGlobalContext } from "../../Hooks/GlobalContext";
